@@ -1,0 +1,27 @@
+There are instances when we want to get data from other servers.
+When the other server is down for some time
+and incoming requests increases, 
+the calling of the other server may lead to
+1. Waiting time 
+2. Resource exhausation lke network, memory increase etc
+
+One of the statergy to mitigate this is using Circuit Breaker Pattern
+
+At success, the request will go through.
+At Failure, the request will go through but will wait upto failure threshold.
+We will try calling the other server upto failure threshold 
+then just throw error , not calling the other server.
+After some timeout, giving the time for other server to come up.
+We will try again calling the other server.
+
+It will be similar to electrical circuit breaker
+If its in CLOSED state, the current goes through
+If its in OPEN state, the current does not go through
+
+
+
+lets Keep the states
+Green
+RED 
+
+
